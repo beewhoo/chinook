@@ -1,0 +1,16 @@
+1. Album.where("artist_id = (?)", Artist.where("name = ?", "Queen").ids)
+2. Track.where("media_type_id = (?)", MediaType.where("name = ?", "Protected MPEG-4 video file").ids).count
+3. Genre.where("name = ?", "Hip Hop/Rap")
+4. Track.where("genre_id = (?)", Genre.where("name = ?","Hip Hop/Rap").ids).count
+5. Track.sum("milliseconds")
+6. Track.where("media_type_id = (?)",MediaType.where("name = ?",'MPEG audio file').ids).maximum("unit_price")
+7. Track.where("unit_price = (?)",Track.where("media_type_id = (?)",MediaType.where("name = ?",'Protected MPEG-4 video file').ids).maximum("unit_price"))
+8. Artist.order(created_at: :asc).limit(2)
+9. Track.where("genre_id =(?)", Genre.where("name = ?", "Electronica/Dance").ids).order(unit_price: :asc).limit(1)
+10. Track.where("media_type_id = (?)", MediaType.where("name = ?", "MPEG audio file").ids).where("genre_id = (?)", Genre.where("name = ?", "Electronica/Dance").ids)
+
+
+Stretch
+
+1. Album.where("title like ?", 'B%')
+2.  Artist.where("name like ?", 'A%')
